@@ -1,30 +1,55 @@
-// Select color input
-// Select size input
+$("#sizePicker").submit(function(event){
+  event.preventDefault();
+height = $("#inputHeight").val();
+width = $("#inputWidth").val();
+makeGrid (height, width);
+});
 
-// When size is submitted by the user, call makeGrid()
-
-function makeGrid() {
-
-var height = $('#inputHeight').val();
-var weight = $('#inputWidth').val();
-var i,j;
-
-  var grid = document.createElement('table');
-  grid.className = 'grid';
-  for (i=0; i<height;++i){
-    var tr = grid.appendChild(document.createElement('tr'));
-    for (j=0;j<width;++j){
-      var cell = tr.appendChild(document.createElement('td'));
-      cell.innerHTML = ++i;
-      }
-  return grid;
+function makeGrid (height, width){
+// clears any previously created table
+$("tr").remove();
+  
+//selects height & width to create grid
+for(var i = 1; i <= height; i++){
+  $("#pixelBoard").append("<tr id=table" + i + "></tr>");
+  for(var j = 1; j <= width; j++){
+    $("#table" + i).append("<td></td>");   
+  }
 }
-		
-	
-
+//uses color to draw on cell(s)
+$("td").click(function addcolor() {
+color = $("#colorPicker").val(); 
+  
+  if($(this).attr("style")) {
+     $(this).removeAttr("style")
+     } else {
+       $(this).attr("style", "background-color:" + color);
+     }
+});  
+  
+// draws by drag & drop
+$("#pixelBoard").on("mousedown", "td", function() {
+//event.preventDefault();
+    mouseDrag = true;
+  });
+  
+$("#pixelBoard").on("mousemove", "td", function() {
+    color = $("#colorPicker").val();
+    if (mouseDrag) {
+      $(this).css("background-color", color);
 }
-
-
-
-
-// print('This works'); Create a print button to print the canvas
+  });
+$("#pixelBoard").on("mouseup mouseleave dragstart", function() {
+    mouseDrag = false;
+  });
+  
+// erases canvas
+$("#erase").click(function eraseTable(){
+  $("tr").remove();
+}); 
+  
+//erases drawing when you click clear
+$("#clear").click(function eraseTable(){
+  $("td").removeAttr("style");
+});
+}
