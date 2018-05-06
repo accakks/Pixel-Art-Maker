@@ -1,21 +1,22 @@
 <html>
+
 <head>
     <title>Pixel Art Maker!</title>
-   <link href="https://fonts.googleapis.com/css?family=Eagle+Lake|Press+Start+2P" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Eagle+Lake|Press+Start+2P" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
 
-
+    <script src="FileSaver.js"></script>
 </head>
+
 <body>
-  
+
     <h1 class="animated bounceInDown">Pixel Art Maker</h1>
 
     <h2>Choose Grid Size</h2>
-  
-  <form id="sizePicker">
-       <span style="font-family: 'Press Start 2P', cursive;
+
+    <form id="sizePicker">
+        <span style="font-family: 'Press Start 2P', cursive;
 font-family: 'Eagle Lake', cursive;"> Grid Height:
     <input type="number" id="inputHeight" name="height" min="1" value="20"> </span>
         <span style="font-family: 'Press Start 2P', cursive;
@@ -23,25 +24,25 @@ font-family: 'Eagle Lake', cursive;">Grid Width:
           <input type="number" id="inputWidth" name="width" min="1" value="20"> </span>
         <input type="submit" id="submit">
     </form>
-    
+
     <h2>Pick A Color</h2>
     <input type="color" id="colorPicker">
 
-   <br><br>
-    <table id="pixelBoard">  
-  </table>
-<br>
-<br>
-<br>
-  <input type= "submit"        
-   id="clear" value="Clear">
-  <input type= "submit"        
-   id="erase" value="Erase board">
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <br><br>
+    <table id="pixelBoard">
+    </table>
+    <br>
+    <br>
+    <br>
+    <input type="submit" id="clear" value="Clear">
+    <input type="submit" id="erase" value="Erase board">
+    <input type="submit" id="show" value="Pic">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="designs.js"></script>
- <br>
- <br>
- <br>
+    <br>
+    <br>
+    <br>
 </body>
+
 </html>
