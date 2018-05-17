@@ -15,7 +15,8 @@ function makeGrid(height, width) {
     for (var i = 1; i <= height; i++) {
         $("#pixelBoard").append("<tr id=table" + i + "></tr>");
         for (var j = 1; j <= width; j++) {
-            $("#table" + i).append("<td style = \"background-color:white\" ></td>");
+            $("#table" + i).append("<td style = \"background-color:white\" ></td>"); //need to add trasparency here 
+            //and manage alpha in final image also
         }
     }
     //uses color to draw on cell(s)
@@ -55,11 +56,13 @@ function makeGrid(height, width) {
         $("td").removeAttr("style");
     });
 
-    $("#show").click(function showPic() {
+    //To show pic and also to download it 
+    $("#export").click(function showPic() {
         makeImg(width, height);
     });
 }
 
+//setting up values of r g and b 
 function setPixel(imageData, x, y, r, g, b, a) {
 
     var index = (x + y * imageData.width);
@@ -69,6 +72,7 @@ function setPixel(imageData, x, y, r, g, b, a) {
     imageData.data[index * 4 + 3] = a;
 }
 
+//obtaining colour information from table and storing in an array
 function getPixel(width, height) {
     var pixelArray = new Array(height * width);
     var i = 0;
@@ -78,13 +82,14 @@ function getPixel(width, height) {
     });
     return pixelArray;
 }
-
+//to get RGB values in an array
 //https://stackoverflow.com/questions/34980574/how-to-extract-color-values-from-rgb-string-in-javascript
 function getRGB(str) {
     var match = str.match(/rgba?\((\d{1,3}), ?(\d{1,3}), ?(\d{1,3})\)?(?:, ?(\d(?:\.\d?))\))?/);
     return match ? [match[1], match[2], match[3]] : [];
 }
 
+//function that does stuffs 
 function makeImg(width, height) {
     var canvas = document.createElement('canvas');
     canvas.id = "thecanvas";
@@ -115,6 +120,9 @@ function makeImg(width, height) {
     }
 
     canvas.getContext("2d").putImageData(imageData, 0, 0);
+
+    //modify here to obtain image in proper format, currently exports in non compatible format (works in linux)
+    //TO:DO Export in BMP format without compression
     canvas.toBlob(blob => {
         let file = new Blob([blob], { type: "application/octet-stream;base64" })
         let blobURL = URL.createObjectURL(file)

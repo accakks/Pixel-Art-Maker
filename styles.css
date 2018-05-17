@@ -4,9 +4,9 @@ body {
 }
 
 h1 {
-   font-family: 'Press Start 2P', cursive;
-font-family: 'Eagle Lake', cursive;
-color:#050e8c;
+    font-family: 'Press Start 2P', cursive;
+    font-family: 'Eagle Lake', cursive;
+    color: #050e8c;
     font-size: 70px;
     margin: 0.2em;
 }
@@ -14,9 +14,8 @@ color:#050e8c;
 h2 {
     margin: 1em 0 0.25em;
     font-family: 'Press Start 2P', cursive;
-font-family: 'Eagle Lake', cursive;
+    font-family: 'Eagle Lake', cursive;
 }
-
 
 table,
 tr,
@@ -41,67 +40,73 @@ input[type=number] {
     width: 6em;
 }
 
-#submit
-{
-
-padding: 10px 24px;
+#submit {
+    padding: 10px 24px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
     margin: 4px 2px;
     cursor: pointer;
-      -webkit-transition-duration: 0.4s; 
+    -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
 }
 
-#clear{
- color: black;
-padding: 15px 32px;
+#clear {
+    color: black;
+    padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-      -webkit-transition-duration: 0.4s; 
+    -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
 }
 
 #erase {
-
-padding: 15px 32px;
+    padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-      -webkit-transition-duration: 0.4s; /* Safari */
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
     transition-duration: 0.4s;
 }
 
+#export {
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+}
 
 #submit:hover {
-     background-color: #4CAF50;
+    background-color: #4CAF50;
     color: white;
 }
 
 #clear:hover {
-     background-color: blue;
+    background-color: blue;
     color: white;
 }
 
 #erase:hover {
     background-color: #f44336;
     color: white;
-
 }
 
-
-
-
-
-
-
-
+#export:hover {
+    background-color: green;
+    color: white;
+}
