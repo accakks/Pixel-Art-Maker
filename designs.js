@@ -121,11 +121,7 @@ function makeImg(width, height) {
 
     canvas.getContext("2d").putImageData(imageData, 0, 0);
 
-    //modify here to obtain image in proper format, currently exports in non compatible format (works in linux)
-    //TO:DO Export in BMP format without compression
     canvas.toBlob(blob => {
-        let file = new Blob([blob], { type: "application/octet-stream;base64" })
-        let blobURL = URL.createObjectURL(file)
-        window.location.href = blobURL;
+        saveAs(blob, "image.png");
     });
 }
